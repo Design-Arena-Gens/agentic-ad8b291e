@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحلقة التكرارية Do...Until - افعل... حتى</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔄 الحلقة التكرارية Do...Until</h1>
+            <p class="subtitle">افعل... حتى يتحقق الشرط</p>
+        </header>
+
+        <section class="concept-section">
+            <h2>📚 ما هي الحلقة Do...Until؟</h2>
+            <div class="concept-box">
+                <p>الحلقة التكرارية <strong>Do...Until</strong> تُستخدم لتكرار مجموعة من الأوامر <strong>حتى يتحقق شرط معين</strong>.</p>
+                <p>الفرق بينها وبين حلقة While: الحلقة Do...Until تنفذ الكود <strong>مرة واحدة على الأقل</strong> قبل فحص الشرط.</p>
+            </div>
+
+            <div class="syntax-box">
+                <h3>البنية الأساسية:</h3>
+                <pre><code>Do
+    ' نفذ هذا الكود
+    ' سيتكرر حتى يتحقق الشرط
+Until (شرط)</code></pre>
+            </div>
+        </section>
+
+        <section class="examples-section">
+            <h2>💡 أمثلة تفاعلية</h2>
+
+            <div class="example-card">
+                <h3>مثال 1: عداد بسيط</h3>
+                <p>العد من 1 إلى 5 باستخدام Do...Until</p>
+                <button class="run-btn" onclick="runExample1()">▶️ تشغيل</button>
+                <div class="code-block">
+                    <pre><code>counter = 1
+Do
+    عرض: counter
+    counter = counter + 1
+Until counter > 5</code></pre>
+                </div>
+                <div id="output1" class="output"></div>
+            </div>
+
+            <div class="example-card">
+                <h3>مثال 2: إدخال المستخدم</h3>
+                <p>طلب إدخال رقم حتى يُدخل المستخدم رقماً صحيحاً</p>
+                <button class="run-btn" onclick="runExample2()">▶️ تشغيل</button>
+                <div class="code-block">
+                    <pre><code>Do
+    رقم = إدخال("أدخل رقماً بين 1 و 10")
+Until رقم >= 1 AND رقم <= 10</code></pre>
+                </div>
+                <div id="output2" class="output"></div>
+            </div>
+
+            <div class="example-card">
+                <h3>مثال 3: حساب المجموع</h3>
+                <p>جمع الأرقام حتى يصل المجموع إلى 50 أو أكثر</p>
+                <button class="run-btn" onclick="runExample3()">▶️ تشغيل</button>
+                <div class="code-block">
+                    <pre><code>مجموع = 0
+رقم = 1
+Do
+    مجموع = مجموع + رقم
+    رقم = رقم + 1
+Until مجموع >= 50</code></pre>
+                </div>
+                <div id="output3" class="output"></div>
+            </div>
+
+            <div class="example-card">
+                <h3>مثال 4: لعبة التخمين</h3>
+                <p>خمّن الرقم السري (بين 1 و 20)</p>
+                <button class="run-btn" onclick="runExample4()">▶️ تشغيل اللعبة</button>
+                <div class="code-block">
+                    <pre><code>سري = رقم_عشوائي(1, 20)
+محاولات = 0
+Do
+    تخمين = إدخال("خمّن الرقم")
+    محاولات = محاولات + 1
+Until تخمين = سري</code></pre>
+                </div>
+                <div id="output4" class="output"></div>
+            </div>
+        </section>
+
+        <section class="interactive-section">
+            <h2>🎮 جرّب بنفسك</h2>
+            <div class="playground">
+                <div class="playground-controls">
+                    <label>
+                        <span>ابدأ من:</span>
+                        <input type="number" id="startNum" value="1" min="0" max="100">
+                    </label>
+                    <label>
+                        <span>انتهي عند:</span>
+                        <input type="number" id="endNum" value="10" min="1" max="100">
+                    </label>
+                    <label>
+                        <span>الخطوة:</span>
+                        <input type="number" id="stepNum" value="1" min="1" max="10">
+                    </label>
+                    <button class="run-btn large" onclick="runCustomLoop()">▶️ شغّل الحلقة</button>
+                </div>
+                <div id="customOutput" class="output large"></div>
+            </div>
+        </section>
+
+        <section class="comparison-section">
+            <h2>⚖️ الفرق بين Do...Until و While</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Do...Until</h3>
+                    <ul>
+                        <li>✅ تنفذ الكود مرة واحدة على الأقل</li>
+                        <li>✅ تفحص الشرط في النهاية</li>
+                        <li>✅ تستمر <strong>حتى يصبح</strong> الشرط صحيحاً</li>
+                    </ul>
+                    <div class="code-block small">
+                        <pre><code>Do
+    عمل_شيء()
+Until شرط = صحيح</code></pre>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <h3>While</h3>
+                    <ul>
+                        <li>⚠️ قد لا تنفذ الكود أبداً</li>
+                        <li>⚠️ تفحص الشرط في البداية</li>
+                        <li>⚠️ تستمر <strong>طالما</strong> الشرط صحيح</li>
+                    </ul>
+                    <div class="code-block small">
+                        <pre><code>While شرط = صحيح
+    عمل_شيء()
+End While</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>🎯 اختبر فهمك</h2>
+            <div class="quiz-card">
+                <p class="quiz-question">كم مرة سيطبع هذا الكود كلمة "مرحبا"؟</p>
+                <div class="code-block">
+                    <pre><code>x = 10
+Do
+    طباعة "مرحبا"
+    x = x + 1
+Until x >= 10</code></pre>
+                </div>
+                <div class="quiz-options">
+                    <button onclick="checkAnswer(1, 0)">0 مرات</button>
+                    <button onclick="checkAnswer(1, 1)">مرة واحدة</button>
+                    <button onclick="checkAnswer(1, 10)">10 مرات</button>
+                    <button onclick="checkAnswer(1, -1)">لا نهائي</button>
+                </div>
+                <div id="quiz1Result" class="quiz-result"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 تعلم البرمجة بالعربية | تطبيق تعليمي تفاعلي</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
